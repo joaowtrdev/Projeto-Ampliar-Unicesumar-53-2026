@@ -9,26 +9,22 @@
 
 int main() {
 
-    setlocale(LC_ALL, "Portuguese_Brazil");
-    system("clear");
+    system("cmd /c cls");
 
     int numeros[10];
 
     for(int i = 0; i < 10; i++) {
-        printf("Informe o %d° número: ", i + 1);
+        printf("Informe o numero na posicao %d: ", i);
         scanf("%d", &numeros[i]);
     }
 
-    printf("Do primeiro para o último\n");
-    for(int i = 0; i < 10; i++) {
-        printf("%d ", numeros[i]);
-    }
+    printf("\nDo ultimo para o primeiro:\n");
 
-
-    printf("\n\nDo último para o primeiro\n");
     for(int i = 9; i >= 0; i--) {
         printf("%d ", numeros[i]);
     }
+
+    printf("\n");
 
     return 0;
 }

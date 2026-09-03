@@ -10,29 +10,26 @@
 #include <math.h>
 
 int main() {
-
-    setlocale(LC_ALL, "Portuguese_Brazil");
-    system("clear");
-
-    float numero, resultado;
-    char opcao;
+    int numero, base, exponencial = 2, resultado;
+    char parar;
 
     do {
-        printf("Informe um número: ");
-        scanf("%f", &numero);
-        getchar();
+        printf("Digite um numero para calcular a potencia: ");
+        scanf("%d", &numero);
 
-        resultado = pow(numero, 2); // numero * numero
-        printf("%.0f² = %.0f\n", numero, resultado);
+        base = numero;
+        resultado = pow(base, exponencial);
+        printf("O resultado e igual: %d\n", resultado);
 
-        printf("Deseja encerrar o programa? Digite [s] ou [n]: ");
-        scanf("%c", &opcao);
+        printf("Deseja encerrar? S ou N:\n" );
+        scanf(" %c", &parar);
 
-        if (opcao == 's' || opcao == 'S') {
-            printf("Programa Encerrado...\n");
+        if(parar != 'N' && parar != 'n' ){
+            break;
+        
         }
+    } while(1);
 
-    } while(opcao == 'n' || opcao == 'N');
-
-    return 0;
+    printf("Programa encerrado.");
+    
 }

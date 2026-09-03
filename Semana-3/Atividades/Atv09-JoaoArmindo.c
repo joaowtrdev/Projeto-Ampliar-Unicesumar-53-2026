@@ -4,6 +4,7 @@
 #include <math.h>
  
 int main() {
+    system("cmd /c cls");
     int numero, base, exponencial = 2, resultado;
     char parar;
  

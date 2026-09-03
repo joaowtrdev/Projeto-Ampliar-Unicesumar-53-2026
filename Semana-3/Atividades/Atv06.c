@@ -8,15 +8,8 @@
 #include <locale.h>
 
 int main() {
-
-    setlocale(LC_ALL, "Portuguese_Brazil");
-    system("clear");
-
-    for(int i = 2024; i >= 1990; i--) {
+    for (int i = 2024; i >= 1990; i--)
         if(i % 2 == 0) {
             printf("%d\n", i);
         }
-    }
-
-    return 0;
 }

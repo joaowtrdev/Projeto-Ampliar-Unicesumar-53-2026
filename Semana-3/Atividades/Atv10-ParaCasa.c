@@ -1,63 +1,67 @@
 /*
-    Escreva um código que exiba na tela um menu com as opções:
+    Escreva um cÃ³digo que exiba na tela um menu com as opÃ§Ãµes:
 
     1. Somar 2 numeros
     2. Multiplicar 2 numeros
     3. Encerrar
 
-    O programa só poderá ser finalizado quando o usuário escolher a opção 3
+    O programa sÃ³ poderÃ¡ ser finalizado quando o usuÃ¡rio escolher a opÃ§Ã£o 3
 */
+
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <locale.h>
 
-int main() {
+int main(){
+    int opcao = 0, soma1, soma2, multiplicao1, multiplicao2, resultadoSoma, resultadoMultiplicao; 
 
-    setlocale(LC_ALL, "Portuguese_Brazil");
-    system("clear");
+    while (opcao != 3){
 
-    int opcao;
-    float num1, num2, resultado;
-
-    do {
-        printf(
-            "\n::: Menu :::\n"
-            "1. Somar 2 números\n"
-            "2. Multiplicar 2 números\n"
-            "3. Encerrar\n"
-            "Escolha uma opção: "
-        );
+        printf("1. Somar 2 numeros\n2. Multiplicar 2 numeros\n3. Encerrar\n");
         scanf("%d", &opcao);
 
-        if(opcao == 1 || opcao == 2) {
-            printf("Digite o primeiro numero: ");
-            scanf("%f", &num1);
+        system("cmd /c cls");
 
-            printf("Digite o segundo numero: ");
-            scanf("%f", &num2);
+        switch (opcao){
+            case 1:
+            printf("Digite o primeiro numero para somar:\n");
+            scanf("%d", &soma1);
+
+            printf("Digite o segundo numero para somar:\n");
+            scanf("%d", &soma2);
+
+            resultadoSoma = soma1 + soma2;
+
+            printf("Resultado da soma: %d \n", resultadoSoma);
+            system("cmd /c pause");
+            system("cmd /c cls");
+                break;
+
+            case 2:
+            printf("Digite o primeiro numero para multiplicao:\n");
+            scanf("%d", &multiplicao1);
+
+            printf("Digite o segundo numero para multiplicao:\n");
+            scanf("%d", &multiplicao2);
+
+            resultadoMultiplicao = multiplicao1 * multiplicao2;
+
+            printf("Resultado da multipicacao: %d \n", resultadoMultiplicao);
+            system("cmd /c pause");
+            system("cmd /c cls");
+                break;
+
+            case 3:
+            opcao = 3;
+                break;
+
+            default:
+                printf ("OpÃ§ao errada. Tente de novo!\n");
+
         }
-
-        switch (opcao) {
-        case 1:
-            resultado = num1 + num2;
-            printf("Resultado da soma: %.2f\n", resultado);
-            break;
-
-        case 2:
-            resultado = num1 * num2;
-            printf("Resultado da multiplicação: %.2f\n", resultado);
-            break;
-
-        case 3:
-            printf("Encerrando o programa...\n");
-            break;
         
-        default:
-            printf("Opcao invalida! Tente novamente.\n");
-            break;
-        }
-    } while (opcao != 3);
-
+    }   printf("Encerrando...");
     return 0;
+    
 }

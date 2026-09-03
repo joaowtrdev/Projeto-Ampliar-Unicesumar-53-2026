@@ -6,20 +6,17 @@
 #include <stdlib.h>
 #include <locale.h>
 
-int main() {
-
-    setlocale(LC_ALL, "Portuguese_Brazil");
-    system("clear");
+int main(){
 
     int i = 53;
-
-    while(i <= 98) {
-        if(i % 2 != 0) {
+    while (i <= 98)
+    {
+        if (i % 2 != 0)
+        {
             printf("%d\n", i);
         }
         i++;
     }
-
     printf("Encerrando...");
     return 0;
 }

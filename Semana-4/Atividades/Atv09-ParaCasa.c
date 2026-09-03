@@ -5,56 +5,43 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <locale.h>
 #include <string.h>
 
-#define MAXCARROS 4
-
 int main() {
+    char modelos[4][50];
+    float precos[4];
 
-    setlocale(LC_ALL, "Portuguese_Brazil");
-    system("clear");
+    int maisBarato = 0, maisCaro = 0;
 
-    char modelo[MAXCARROS][30];
-    float preco[MAXCARROS];
-    int indiceMaisCaro, indiceMaisBarato;
+    for (int i = 0; i < 4; i++) {
+        printf("Digite o modelo do %d carro: ", i + 1);
+        fgets(modelos[i], sizeof(modelos[i]), stdin);
 
-    for(int i = 0; i < MAXCARROS; i++) {
-        printf("Informe o modelo do %d° carro: ", i + 1);
-        fgets(modelo[i], sizeof(modelo[i]), stdin);
-        modelo[i][strcspn(modelo[i], "\n")] = '\0';
+        modelos[i][strcspn(modelos[i], "\n")] = '\0';
 
-        printf("Informe o preco deste veículo: ");
-        scanf("%f", &preco[i]);
+        printf("Digite o preco do %d carro: R$ ", i + 1);
+        scanf("%f", &precos[i]);
+
         getchar();
+    }
 
-        printf("\n");
+    for (int i = 1; i < 4; i++) {
+        if (precos[i] < precos[maisBarato]) {
+            maisBarato = i;
+        }
 
-        if(i == 0) {
-            indiceMaisCaro = i;
-            indiceMaisBarato = i;
-        } else {
-            if(preco[i] > preco[indiceMaisCaro]) {
-                indiceMaisCaro = i;
-            }
-
-            if(preco[i] < preco[indiceMaisBarato]) {
-                indiceMaisBarato = i;
-            }
+        if (precos[i] > precos[maisCaro]) {
+            maisCaro = i;
         }
     }
 
-    printf(
-        "Carro mais CARO\n"
-        "Modelo: %s\n"
-        "Valor: %.2f\n", modelo[indiceMaisCaro], preco[indiceMaisCaro]
-    );
+    printf("\nCarro mais barato:\n");
+    printf("Modelo: %s\n", modelos[maisBarato]);
+    printf("Preco: R$ %.2f\n", precos[maisBarato]);
 
-    printf(
-        "\nCarro mais BARATO\n"
-        "Modelo: %s\n"
-        "Valor: %.2f\n", modelo[indiceMaisBarato], preco[indiceMaisBarato]
-    );
+    printf("\nCarro mais caro:\n");
+    printf("Modelo: %s\n", modelos[maisCaro]);
+    printf("Preco: R$ %.2f\n", precos[maisCaro]);
 
     return 0;
 }

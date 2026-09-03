@@ -3,25 +3,23 @@
 */
 
 #include <stdio.h>
-#include <stdlib.h>
-#include <locale.h>
 #include <string.h>
 
 int main() {
 
-    setlocale(LC_ALL, "Portuguese_Brazil");
-    system("clear");
+    char nomes[4][20];
 
-    char nomes[4][50];
-
-    for(int i = 0; i < 4; i++) {
-        printf("Informe o %d° nome: ", i + 1);
+    for (int i = 0; i < 4; i++) {
+        printf("Digite o %d nome: ", i + 1);
         fgets(nomes[i], sizeof(nomes[i]), stdin);
+
         nomes[i][strcspn(nomes[i], "\n")] = '\0';
     }
 
-    for(int i = 0; i < 4; i++) {
-        printf("%d° Nome: %s\n", i + 1, nomes[i]);
+    printf("\nNomes digitados:\n");
+
+    for (int i = 0; i < 4; i++) {
+        printf("%s\n", nomes[i]);
     }
 
     return 0;

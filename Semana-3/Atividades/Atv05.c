@@ -6,31 +6,29 @@
 #include <stdlib.h>
 #include <locale.h>
 
-int main() {
-
-    setlocale(LC_ALL, "Portuguese_Brazil");
-    system("clear");
-
+int main()
+{
     float salario, aumento;
     int porcentagem;
 
-    printf("Informe o salário do funcionário: ");
-    scanf("%f", &salario);
+    printf("Informe o salario do funcionario: ");
+        scanf("%f", &salario);
 
     do {
-        printf("Quantos %% de aumento dará para o funcionário: ");
+
+        printf("Quantos %% de aumento dara para o funcionario: ");
         scanf("%d", &porcentagem);
 
         aumento = salario * (porcentagem / 100.0);
 
-        salario = salario + aumento; // salario += aumento;
+        salario = salario + aumento;
 
-        printf("Aumento: R$%.2f\nSalário atualizado: R$%.2f\n\n",aumento, salario);
+        printf("Aumento: R$%.2f\nSalario atualizado: R%.2f\n\n",aumento, salario);
         system("pause");
-        system("cls"); // "clear"
-    } while(salario < 10000);
-
-    printf("Finalizou com salário sinistrão de R$%.2f", salario);
+        system("cls");
+    } while (salario < 10000);
+        
+    printf("finalizou com salario sinistro de R$%.2f\n", salario);
 
     return 0;
 }
