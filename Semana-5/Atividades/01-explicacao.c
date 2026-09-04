@@ -3,7 +3,7 @@
 #include <locale.h>
 #include <string.h>
 
-struct Aluno {
+struct TipoAluno {
         char nome[30];
         int idade;
         int matricula;
@@ -15,7 +15,7 @@ int main() {
     setlocale(LC_ALL, "pt-BR.UTF-8");
     system("clear");
 
-    struct Aluno aluno1;
+    struct TipoAluno aluno1;
 
     printf("Informe o nome do aluno: ");
     fgets(aluno1.nome, sizeof(aluno1.nome), stdin);
