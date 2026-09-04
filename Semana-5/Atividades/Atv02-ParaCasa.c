@@ -8,56 +8,63 @@
 #include <locale.h>
 #include <string.h>
 
-struct Aluno {
+#define MAXNOTAS 2
+#define MAXALUNOS 2
+
+typedef struct {
     char nome[30];
     int idade;
-    float notas[2];
+    float notas[MAXNOTAS];
     float media;
-};
+} TipoAluno;
 
 int main() {
 
-    setlocale(LC_ALL, "pt-BR.UTF-8");
+    setlocale(LC_ALL, "pt_BR.UTF-8");
     system("clear");
 
-    struct Aluno alunos[3];
+    TipoAluno alunos[MAXALUNOS];
+    float somaNotas;
 
-    for(int i = 0; i < 3; i++) {
-
-        printf("\n::: CADASTRO DO ALUNO %d :::\n", i + 1);
-
-        printf("Informe o nome: ");
+    for(int i = 0; i < MAXALUNOS; i++) {
+        printf("Informe o NOME do %d° Aluno: ", i + 1);
         fgets(alunos[i].nome, sizeof(alunos[i].nome), stdin);
         alunos[i].nome[strcspn(alunos[i].nome, "\n")] = '\0';
 
-        printf("Informe a idade: ");
+        printf("Informe a idade do aluno %s: ", alunos[i].nome);
         scanf("%d", &alunos[i].idade);
 
-        for(int j = 0; j < 2; j++) {
-            printf("Informe a %dª nota: ", j + 1);
+        for(int j = 0; j < MAXNOTAS; j++) {
+            printf("Informe a %d° nota do aluno %s: ", j + 1, alunos[i].nome);
             scanf("%f", &alunos[i].notas[j]);
+            getchar();
+
+            if(j == 0) {
+                somaNotas = alunos[i].notas[j];
+            } else {
+                somaNotas += alunos[i].notas[j]; // somaNotas = somaNotas + aluno1.notas[i]
+            }
         }
-
-        alunos[i].media = (alunos[i].notas[0] + alunos[i].notas[1]) / 2;
-
-        getchar();
+        
+        alunos[i].media = somaNotas / MAXNOTAS;
+        system("clear");
     }
 
-    printf("\n\n::: RESULTADOS :::\n");
-
-    for(int i = 0; i < 3; i++) {
-
+    for(int i = 0; i < MAXALUNOS; i++) {
         printf(
-            "\nAluno: %s\n"
-            "Idade: %d anos\n"
-            "Média: %.2f\n", alunos[i].nome, alunos[i].idade, alunos[i].media
+        "\n::: Aluno :::\n"
+        "Nome: %s\n"
+        "Idade: %d\n"
+        "Média: %.2f\n", alunos[i].nome, alunos[i].idade, alunos[i].media
         );
 
-        if(alunos[i].media >= 6) {
-            printf("Situação: APROVADO\n");
-        } else {
-            printf("Situação: REPROVADO\n");
-        }
+        // if(alunos[i].media >= 6) {
+        //     printf("Aprovado\n");
+        // } else {
+        //     printf("Reprovado\n");
+        // }
+
+        alunos[i].media >= 6 ? printf("Aprovado\n") : printf("Reprovado\n");
     }
 
     return 0;

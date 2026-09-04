@@ -9,41 +9,47 @@
 #include <locale.h>
 #include <string.h>
 
-struct Aluno {
+#define MAXNOTAS 4
+
+typedef struct {
     char nome[30];
     int idade;
-    float notas[4];
-};
+    float notas[MAXNOTAS];
+} Aluno;
 
 int main() {
 
-    struct Aluno aluno1;
-    float media = 0;
+    setlocale(LC_ALL, "pt_BR.UTF-8");
+    system("clear");
 
-    printf("Informe o nome do aluno: ");
+    Aluno aluno1;
+    float media, somaNotas;
+
+    printf("Informe o nome do Aluno: ");
     fgets(aluno1.nome, sizeof(aluno1.nome), stdin);
     aluno1.nome[strcspn(aluno1.nome, "\n")] = '\0';
 
-    printf("Informe a idade do aluno: ");
+    printf("Informe a idade do aluno %s: ", aluno1.nome);
     scanf("%d", &aluno1.idade);
 
-    for(int i = 0; i < 4; i++) {
-        printf("Informe a %dª nota: ", i + 1);
+    for(int i = 0; i < MAXNOTAS; i++) {
+        printf("Informe a %d° nota do aluno %s: ", i + 1, aluno1.nome);
         scanf("%f", &aluno1.notas[i]);
 
-        media += aluno1.notas[i];
+        if(i == 0) {
+            somaNotas = aluno1.notas[i];
+        } else {
+            somaNotas += aluno1.notas[i]; // somaNotas = somaNotas + aluno1.notas[i]
+        }
     }
 
-    media /= 4;
+    media = somaNotas / MAXNOTAS;
 
     printf(
-        "\n\n::: ALUNO :::\n"
+        "\n::: Aluno :::\n"
         "Nome: %s\n"
-        "Idade: %d anos\n"
-        "Média: %.2f\n",
-        aluno1.nome,
-        aluno1.idade,
-        media
+        "Idade: %d\n"
+        "Média: %.2f", aluno1.nome, aluno1.idade, media
     );
 
     return 0;

@@ -5,66 +5,53 @@
     O programa deverá retornar o carro mais caro e o mais barato.
 */
 
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <locale.h>
 #include <string.h>
 
-#define QTD_CARROS 4
+#define MAXCARROS 4
 
-struct Carro {
-    char modelo[50];
-    float valorFipe;
-};
+typedef struct {
+    char modeloCarro[50];
+    float valor;
+} TipoCarro;
 
 int main() {
 
-    setlocale(LC_ALL, "pt-BR.UTF-8");
+    setlocale(LC_ALL, "pt_BR.UTF-8");
     system("clear");
 
-    struct Carro carros[QTD_CARROS];
+    int carroMaisCaro, carroMaisBarato;
+    TipoCarro carros[MAXCARROS];
 
-    int maisCaro = 0, maisBarato = 0;
+    for(int i = 0; i < MAXCARROS; i++) {
+        printf("Informe o modelo do %d° carro: ", i + 1);
+        fgets(carros[i].modeloCarro, sizeof(carros[i].modeloCarro), stdin);
+        carros[i].modeloCarro[strcspn(carros[i].modeloCarro, "\n")] = '\0';
 
-    for(int i = 0; i < QTD_CARROS; i++) {
-
-        printf("\n::: CARRO %d :::\n", i + 1);
-
-        printf("Informe o modelo do carro: ");
-        fgets(carros[i].modelo, sizeof(carros[i].modelo), stdin);
-        carros[i].modelo[strcspn(carros[i].modelo, "\n")] = '\0';
-
-        printf("Informe o valor da FIPE: R$ ");
-        scanf("%f", &carros[i].valorFipe);
-
+        printf("Informe o valor do carro: ");
+        scanf("%f", &carros[i].valor);
         getchar();
+
+        if(i == 0) {
+            carroMaisBarato = i;
+            carroMaisCaro = i;
+        } else {
+            if(carros[i].valor > carros[carroMaisCaro].valor) {
+                carroMaisCaro = i;
+            }
+
+            if(carros[i].valor < carros[carroMaisBarato].valor) {
+                carroMaisBarato = i;
+            }
+        }
+        system("clear");
     }
 
-    for(int i = 1; i < QTD_CARROS; i++) {
+    printf("O carro mais CARO foi o modelo %s no valor de R$%.2f\n", carros[carroMaisCaro].modeloCarro, carros[carroMaisCaro].valor);
 
-        if(carros[i].valorFipe > carros[maisCaro].valorFipe) {
-            maisCaro = i;
-        }
-
-        if(carros[i].valorFipe < carros[maisBarato].valorFipe) {
-            maisBarato = i;
-        }
-    }
-
-    printf(
-        "\n\n::: CARRO MAIS CARO :::\n"
-        "Modelo: %s\n"
-        "Valor FIPE: R$ %.2f\n",
-        carros[maisCaro].modelo, carros[maisCaro].valorFipe
-    );
-
-    printf(
-        "\n::: CARRO MAIS BARATO :::\n"
-        "Modelo: %s\n"
-        "Valor FIPE: R$ %.2f\n",
-        carros[maisBarato].modelo, carros[maisBarato].valorFipe
-    );
+    printf("O carro mais BARATO foi o modelo %s no valor de R$%.2f\n", carros[carroMaisBarato].modeloCarro, carros[carroMaisBarato].valor);
 
     return 0;
 }
