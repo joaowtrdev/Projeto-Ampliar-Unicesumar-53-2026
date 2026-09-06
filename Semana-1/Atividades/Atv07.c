@@ -9,14 +9,13 @@
 
 int main() {
     setlocale(LC_ALL, "portuguese_BRA");
-    system("clear");
+    
+    int resto, num; 
 
-    int numero, resto;
+    printf("Informe um numero: ");
+    scanf("%d", &num);
 
-    printf("Digite um número: ");
-    scanf("%d", &numero);
-
-    resto = numero % 5;
+    resto = num % 2;
 
     printf("Resto = %d", resto);
 

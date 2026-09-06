@@ -6,21 +6,19 @@
 #include <stdio.h>
 #include <locale.h> //Biblioteca Padrão de Localização - Standard Locale . Header
 
-int main() {
+int main(){
 
-    setlocale(LC_ALL, "Portuguese_Brazil"); // Deixa a saída de dados em português
+    int anoAtual, anoNascimento, idade;
 
-    int  anoAtual, anoNascimento, idade;
-
-    printf("Digite o seu ano atual: ");
+    printf("Digite o ano atual: ");
     scanf("%d", &anoAtual);
 
-    printf("Digite o seu ano de nascimento: ");
+    printf("Digite seu ano de nascimento: ");
     scanf("%d", &anoNascimento);
 
     idade = anoAtual - anoNascimento;
 
-    printf("Sua idade é: %d", idade);
+    printf("Sua idade = %d", idade);
 
     return 0;
 }

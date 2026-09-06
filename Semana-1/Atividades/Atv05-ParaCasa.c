@@ -8,18 +8,16 @@
 #include <locale.h>
 #include <stdlib.h>
 
-int main() {
-    setlocale(LC_ALL,"Portuguese_Brazil");
-    system("clear");
-    const float PI = 3.1416;
-    float raio, area;
+int main(){
 
-    printf("Informe o raio do círculo: ");
+    setlocale(LC_ALL, "portuguese_BRA");
+    const float pi = 3.14159;
+    float raio, area; 
+
+    printf("Infome o valor do raio: ");
     scanf("%f", &raio);
 
-    area = PI * (raio * raio);
+    area = pi * (raio * raio);
 
-    printf("Área do círculo é igual a %.2f", area);
-
-    return 0;
+    printf("A área do círculo é = %.2f", area);
 }

@@ -9,25 +9,22 @@
 
 int main() {
     setlocale(LC_ALL, "portuguese_BRA");
-    system("clear");
 
-    float nota1, nota2, nota3, nota4, media;
+    float n1, n2, n3, n4, media;
 
-    printf("Informe a primeira nota: ");
-    scanf("%f", &nota1);
+    printf("Infome a primeira nota: ");
+    scanf("%f", &n1);
+    
+    printf("Infome a segunda nota: ");
+    scanf("%f", &n2);
+    
+    printf("Infome a terceira nota: ");
+    scanf("%f", &n3);
+    
+    printf("Infome a quarta nota: ");
+    scanf("%f", &n4);
+    
+    media = (n1 + n2 + n3 + n4) / 4;
 
-    printf("Informe a segunda nota: ");
-    scanf("%f", &nota2);
-
-    printf("Informe a terceira nota: ");
-    scanf("%f", &nota3);
-
-    printf("Informe a quarta nota: ");
-    scanf("%f", &nota4);
-
-    media = (nota1 + nota2 + nota3 + nota4) / 4;
-
-    printf("Média = %.2f", media);
-
-    return 0;
+    printf("A média do aluno é: %.1f", media);
 }
