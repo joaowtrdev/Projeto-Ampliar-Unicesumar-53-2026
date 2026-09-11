@@ -1,0 +1,3 @@
+/*
+    Escreva um algoritmo que calcule a idade de uma pessoa a partir de sua data de nascimento.
+*/
