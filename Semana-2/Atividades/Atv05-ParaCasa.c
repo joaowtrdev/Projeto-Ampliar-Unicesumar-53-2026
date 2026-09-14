@@ -1,6 +1,6 @@
 /*
-    Escreva um algortimo que receba 2 notas de um aluno. O pgorgrama dever· calcular a mÈdia do aluno e informar se
-    ele est· aprovado (mÈdia maior que 7), em recuperaÁ„o (mÈdia entre 5 e 7) ou reprovado (mÈdia menor que 5).
+    Escreva um algortimo que receba 2 notas de um aluno. O pgorgrama dever√° calcular a m√©dia do aluno e informar se
+    ele est√° aprovado (m√©dia maior que 7), em recupera√ß√£o (m√©dia entre 5 e 7) ou reprovado (m√©dia menor que 5).
 */
 
 #include <stdio.h>
@@ -9,28 +9,25 @@
 
 int main() {
 
-    setlocale(LC_ALL, "Portuguese_Brazil");
-    system("clear");
+    setlocale(LC_ALL, "pt_BR.UTF-8");
+    system("cmd /c cls");
 
-    float n1, n2, media;
+    float nota1, nota2, media;
 
-    printf("Insira a primeira nota: ");
-    scanf("%f", &n1);
+    printf("Infome a primeira nota: ");
+    scanf("%f", &nota1);
 
-    printf("Insira a segunda nota: ");
-    scanf("%f", &n2);
+    printf("Infome a segunda nota: ");
+    scanf("%f", &nota2);
 
-    media = (n1 + n2) / 2;
+    media = (nota1 + nota2) /2;
 
-    if(media < 0 || media > 10) {
-        printf("Erro, encerrando o programa");
-        return 1;
-    } else if(media > 7) {
-        printf("ParabÈns!! VocÍ est· aprovado com a nota %.2f", media);
-    } else if(media >= 5 && media <= 7) {
-        printf("VocÍ est· de recuperaÁ„o!!");
+    if(media > 7) {
+        printf("Sua m√©dia √© %.2f voc√™ est√° aprovado.", media);
+    } else if(media >= 5) {
+        printf("Sua m√©dia √© %.2f voc√™ est√° de recupera√ß√£o.", media);
     } else {
-        printf("Infelizmente vocÍ foi reprovado!! Volte a estudar ;( . Sua nota foi %.2f", media);
+        printf("Sua m√©dia √© %.2f voc√™ est√° reprovado.", media);
     }
 
     return 0;

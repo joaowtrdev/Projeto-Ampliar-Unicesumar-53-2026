@@ -1,5 +1,5 @@
 /*
-    Escreva um programa que receba um n˙mero e calcule a raiz quadrada dele.
+    Escreva um programa que receba um n√∫mero e calcule a raiz quadrada dele.
 
     Dica: https://petbcc.ufscar.br/manual-c/biblioteca/math/
 */
@@ -11,20 +11,19 @@
 
 int main() {
 
-    setlocale(LC_ALL, "Portuguese_Brazil");
-    system("clear");
+    setlocale(LC_ALL, "pt_BR.UTF-8");
+    system("cmd /c cls");
 
     float num, raizQuadrada;
 
-    printf("Informe um n˙mero: ");
+    printf("Informe um n√∫mero: ");
     scanf("%f", &num);
 
-    if(num >= 0)
-    {
+    if(num >= 0) {
         raizQuadrada= sqrt(num);
-        printf("A raiz quadrada de %.0f È %.0f", num, raizQuadrada);
+        printf("A raiz quadrada de %.0f √© %.0f", num, raizQuadrada);
     } else {
-        printf("N„o È possivel calcular");
+        printf("N√£o √© possivel calcular a raiz quadrada desse nn√∫mero");
     }
 
     return 0;

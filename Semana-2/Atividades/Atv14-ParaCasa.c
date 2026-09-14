@@ -1,9 +1,9 @@
 /*
-    Escreva um programa que receba o sal·rio de uma pessoa e calcule o imposto de renda dela baseado na tabela abaixo:
-    - AtÈ 2259,20, IRPF 0%
-    - De R$ 2.259,21 atÈ R$ 2.826,65, IRPF 7,5%
-    - De R$ 2.826,66 atÈ R$ 3.751,05, IRPF 15,0%
-    - De R$ 3.751,06 atÈ R$ 4.664,68, IRPF 22,5%
+    Escreva um programa que receba o sal√°rio de uma pessoa e calcule o imposto de renda dela baseado na tabela abaixo:
+    - At√© 2259,20, IRPF 0%
+    - De R$ 2.259,21 at√© R$ 2.826,65, IRPF 7,5%
+    - De R$ 2.826,66 at√© R$ 3.751,05, IRPF 15,0%
+    - De R$ 3.751,06 at√© R$ 4.664,68, IRPF 22,5%
     - Acima de R$ 4.664,68, IRPF 27,5%
 */
 
@@ -13,31 +13,28 @@
 
 int main() {
 
-    setlocale(LC_ALL, "Portuguese_Brazil");
-    system("clear");
+    setlocale(LC_ALL, "pt_BR.UTF-8");
+    system("cmd /c cls");
 
     float salario, imposto;
 
-    printf("Digite o Sal·rio: ");
+    printf("Informe seu sal√°rio: ");
     scanf("%f", &salario);
 
-    if ( salario <= 2259.20) {
-        imposto = 0.0;
-        printf("Insento de IRPF: R$%.1f\n", imposto);
-    } else if (salario <= 2826.65) {
-        imposto = 0.075 * salario;
-        printf("IRPF È de 7.5%%: R$%.2f\n", imposto);
-    } else if ( salario <= 3751.05) {
-        imposto = 0.15 * salario;
-        printf("IRPF È de 15%%: R$%.2f\n", imposto);
-    } else if ( salario <= 4664.68) {
-        imposto = 0.225 * salario;
-        printf(" IRPF È de 22.5%%: R$%.2f\n", imposto);
+    if(salario <= 2259.20){
+        printf("Sortudo, voc√™ n√£o tem nenhum imposto para pagar.");
+    } else if (salario >= 2259.21 && salario <= 2826.65) {
+        imposto = salario * 0.075;
+        printf("Voc√™ tem %.2f de imposto para pagar", imposto);
+    } else if (salario >= 2826.66 && salario <= 3751.05) {
+        imposto = salario * 0.15;
+        printf("Voc√™ tem %.2f de imposto para pagar", imposto);
+    } else if (salario >= 3751.06 && salario <= 4664.68) {
+        imposto = salario * 0.225;
+        printf("Come√ßou fazer o L, voc√™ tem %.2f de imposto para pagar", imposto);
     } else {
-        imposto = 0.275 * salario;
-        printf("IRPF È de 27.5%%: R$%.2f\n", imposto);
+        imposto = salario * 0.275;
+        printf("Fa√ßa o L, voc√™ tem %.2f de imposto para pagar", imposto);
     }
-
-
-    return 0;
+        return 0;
 }

@@ -1,6 +1,6 @@
 /*
-    Escreva um programa em C que peça ao usuário o salário e o tempo de trabalho em anos.
-    O programa deverá calcular um bônus de 5% sobre o salário se o tempo de trabalho for superior a 5 anos.
+    Escreva um programa em C que peÃ§a ao usuÃ¡rio o salÃ¡rio e o tempo de trabalho em anos.
+    O programa deverÃ¡ calcular um bÃ´nus de 5% sobre o salÃ¡rio se o tempo de trabalho for superior a 5 anos.
 
     "salario * 0,05"
 */
@@ -11,25 +11,27 @@
 
 int main() {
 
-    setlocale(LC_ALL, "Portuguese_Brazil");
-    system("clear");
+    setlocale(LC_ALL, "pt_BR.UTF-8");
+    system("cmd /c cls");
 
     int anos;
-    float salario, salario_novo, bonus;
+    float salario, bonus, novoSalario;
 
-    printf("Qual o seu salário: ");
+    printf("Informe seu salÃ¡rio: ");
     scanf("%f", &salario);
 
-    printf("Quantos anos você trabalha: ");
+    printf("Quantos anos vocÃª tem de trabalho na empresa: ");
     scanf("%d", &anos);
 
-    if (anos > 5) {
-        bonus = salario * 0.05;
-        salario_novo = salario + bonus;
-        printf("Seu novo salário é: R$%.2f\n", salario_novo);
-    }
-    else {
-        printf("Você teve um aumento\n");
+    bonus = salario * 0.05;
+    novoSalario = salario + bonus;
+
+    if(anos > 5){
+        printf(
+            "ParabÃ©ns, vocÃª ganhou um bÃ´nus de R$%.2f\n"
+            "Seu novo salario Ã© R$%.2f ", bonus, novoSalario);
+    } else {
+        printf("VocÃª nÃ£o tem direito ao bÃ´nus!");
     }
 
     return 0;

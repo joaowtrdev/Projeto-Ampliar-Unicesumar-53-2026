@@ -11,27 +11,24 @@
 
 int main() {
 
-    setlocale(LC_ALL, "Portuguese_Brazil");
-    system("clear");
+    setlocale(LC_ALL, "pt_BR");
+    system("cmd /c cls");
 
-    float n1, n2, media;
+    float nota1, nota2, media;
 
-    printf("Insira a primeira nota: ");
-    scanf("%f", &n1);
+    printf("Informe a primeira nota: ");
+    scanf("%f", &nota1);
+    
+    printf("Informe a segunda nota: ");
+    scanf("%f", &nota2);
 
-    printf("Insira a segunda nota: ");
-    scanf("%f", &n2);
+    media = (nota1 + nota2) /2;
 
-    media = (n1 + n2) / 2;
-
-    if(media < 0 || media > 10) {
-        printf("Erro, encerrando o programa");
-        return 1;
-    } else if(media >= 6) {
-        printf("Parabéns!! Você está aprovado com a nota %.2f", media);
+    if(media >= 6){
+        printf("Aprovado, sua m?dia ? %.2f.", media);
     } else {
-        printf("Infelizmente você foi reprovado!! Volte a estudar ;( . Sua nota foi %.2f", media);
+        printf("Reprovado, sua m?dia ? %.2f.", media);
     }
-
+    
     return 0;
 }

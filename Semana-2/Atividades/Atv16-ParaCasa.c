@@ -1,13 +1,13 @@
 /*
-    Escreva um programa em C que leia a medida dos 3 lados de uma forma geométrica.
-    O programa deverá usar o teorema de Pitágoras para definir se esta forma é um triângulo.
-    Caso seja um triangulo verifique se é um triângulo retânculo ou não.
+    Escreva um programa em C que leia a medida dos 3 lados de uma forma geomÃ©trica.
+    O programa deverÃ¡ usar o teorema de PitÃ¡goras para definir se esta forma Ã© um triÃ¢ngulo.
+    Caso seja um triangulo verifique se Ã© um triÃ¢ngulo retÃ¢nculo ou nÃ£o.
 
-    Formula Triângulo :
+    Formula TriÃ¢ngulo :
     A+B > C  ||  B+C > A  ||  C+A > B
     
-    Formula Triângulo Retângulo:
-    C² = A² + B² || B² = A² + C² || A² = C² + B²
+    Formula TriÃ¢ngulo RetÃ¢ngulo:
+    CÂ² = AÂ² + BÂ² || BÂ² = AÂ² + CÂ² || AÂ² = CÂ² + BÂ²
 */
 
 #include <stdio.h>
@@ -17,8 +17,8 @@
 
 int main() {
 
-    setlocale(LC_ALL, "Portuguese_Brazil");
-    system("clear");
+    setlocale(LC_ALL, "pt_BR.UTF-8");
+    system("cmd /c cls");
 
     float ladoA, ladoB, ladoC;
 
@@ -32,21 +32,18 @@ int main() {
     scanf("%f", &ladoC);
 
     if(ladoA + ladoB > ladoC ||ladoB + ladoC > ladoA || ladoC + ladoA > ladoB) {
-        printf("Esta figura geométrica é um triângulo ");
+        printf("Essa figura geomÃ©trica Ã© um triÃ¢ngulo ");
 
         if(
             pow(ladoC, 2) == pow(ladoA, 2) + pow(ladoB, 2) ||
             pow(ladoB, 2) == pow(ladoA, 2) + pow(ladoC, 2) ||
             pow(ladoA, 2) == pow(ladoC, 2) + pow(ladoB, 2)
-
-            // (ladoC * ladoC) == (ladoA * ladoA) + (ladoB * ladoB) ||
-            // (ladoB * ladoB) == (ladoA * ladoA) + (ladoC * ladoC) ||
-            // (ladoA * ladoA) == (ladoC * ladoC) + (ladoB * ladoB)
         ) {
-            printf("e também é um triângulo retângulo");
+            printf("e tambÃ©m Ã© um triÃ¢ngulo retÃ¢ngulo");
         }
     } else {
-        printf(" Esta figura não pode ser um triângulo\n");
+        printf("Essa figura nÃ£o pode ser um triÃ¢ngulo\n");
     }
+    
     return 0;
 }

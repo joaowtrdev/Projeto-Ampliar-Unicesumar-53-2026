@@ -10,31 +10,29 @@
 */
 
 #include <stdio.h>
-#include <stdlib.h>
 #include <locale.h>
+#include <stdlib.h>
 
-int main() {
+int main(){
 
-    setlocale(LC_ALL, "Portuguese_Brazil");
-    system("clear");
-
+    setlocale(LC_ALL, "pt_BR");
+    system("cmd /c cls");
+    
     int idade1, idade2;
 
-    printf("Informe a primeira idade: ");
+    printf("Infome sua idade: ");
     scanf("%d", &idade1);
 
-    printf("Informe a segunda idade: ");
+    printf("Informe sua idade: ");
     scanf("%d", &idade2);
 
-    if (idade1 > idade2) {
-        printf("A primeira idade %d é a mais velha", idade1);
-    }
-    else if(idade2 > idade1) {
-        printf("A segunda idade %d é o mais velho", idade2);
-    }
-    else {
-        printf("As duas idades são iguais");
+    if (idade1 > idade2 && idade2 > idade1) 
+    {
+        printf("A pessoa mais velha é a que tem %d anos.", idade1);
+    } else {
+        printf("A pessoa mais velha é a que tem %d anos.", idade2);
     }
 
     return 0;
+
 }

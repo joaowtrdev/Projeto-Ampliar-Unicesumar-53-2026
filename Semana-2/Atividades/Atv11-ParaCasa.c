@@ -8,36 +8,38 @@
 
 int main() {
 
-    setlocale(LC_ALL, "Portuguese_Brazil");
-    system("clear");
+    setlocale(LC_ALL, "pt_BR.UTF-8");
+    system("cmd /c cls");
 
-    int idade1, idade2, idade3, idade4, maisVelho, maisNovo;
+    int idade1, idade2, idade3, idade4;
+    int maisVelha, maisNova;
 
-    printf("Digite a primeira idade: ");
+    printf("Informe a primeira idade: ");
     scanf("%d", &idade1);
-
-    printf("Digite a segunda idade: ");
+    
+    printf("Informe a segunda idade: ");
     scanf("%d", &idade2);
-
-    printf("Digite a terceira idade: ");
+    
+    printf("Informe a terceira idade: ");
     scanf("%d", &idade3);
-
-    printf("Digite a quarta idade: ");
+    
+    printf("Informe a quarta idade: ");
     scanf("%d", &idade4);
 
-    maisVelho = idade1;
-    maisNovo = idade1;
+    maisVelha = idade1;
+    maisNova = idade1;
 
-    if(maisVelho < idade2)  { maisVelho = idade2;}
-    if(maisNovo  > idade2)  { maisNovo  = idade2;}
+    if (idade2 > maisVelha) maisVelha = idade2;
+    if (idade2 < maisNova) maisNova = idade2;
 
-    if(maisVelho < idade3)  { maisVelho = idade3;}
-    if(maisNovo  > idade3)  { maisNovo  = idade3;}
+    if (idade3 > maisVelha) maisVelha = idade3;
+    if (idade3 < maisNova) maisNova = idade3;
 
-    if(maisVelho < idade4)  { maisVelho = idade4;}
-    if(maisNovo  > idade4)  { maisNovo  = idade4;}
+    if (idade4 > maisVelha) maisVelha = idade4;
+    if (idade4 < maisNova) maisNova = idade4;
 
-    printf("Maior idade = %d\nMenor idade = %d", maisVelho, maisNovo);
+    printf("A maior idade é: %d\n", maisVelha);
+    printf("A menor idade é: %d\n", maisNova);
 
     return 0;
 }

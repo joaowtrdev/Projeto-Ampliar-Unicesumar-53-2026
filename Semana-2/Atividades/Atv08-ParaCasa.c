@@ -1,13 +1,13 @@
 /*
     Escreva um programa que receba a altura e peso de uma pessoa.
-    O programa deverá calcular o IMC dessa pessoa e informar se ela está: 
+    O programa deverÃ¡ calcular o IMC dessa pessoa e informar se ela estÃ¡: 
 
     Abaixo do peso - IMC menor ou igual 18,5
     Peso normal - IMC entre 18,5 e 24,99
     Sobrepeso - IMC entre 25 e 29,99
     Obeso - IMC maior ou igual a 30
 
-    IMC = PESO / ALTURA²
+    IMC = PESO / ALTURAÂ²
 */
 
 #include <stdio.h>
@@ -17,27 +17,27 @@
 
 int main() {
 
-    setlocale(LC_ALL, "Portuguese_Brazil");
-    system("clear");
+    setlocale(LC_ALL, "pt_BR.UTF-8");
+    system("cmd /c cls");
 
-    float altura, peso, imc;
+    float peso, altura, IMC;
 
-    printf("Digite sua altura em metros (1,75): ");
+    printf("Infome seu peso: ");
+    scanf("%f", &peso);
+    
+    printf("Infome sua altura: ");
     scanf("%f", &altura);
 
-    printf("Digite seu peso em Kg (72,5): ");
-    scanf("%f", &peso);
+    IMC = peso / (altura * altura);
 
-    imc = peso / (pow(altura, 2)); // (altura * altura)
-
-    if (imc <= 18.5) {
-        printf("\nSeu IMC é: %.2f\nVocê está abaixo do peso", imc);
-    } else if (imc <= 24.99) {
-        printf("\nSeu IMC é: %.2f\nVocê está no peso normal", imc);
-    } else if (imc <= 29.99){
-        printf("\nSeu IMC é: %.2f\nVocê está com sobrepeso", imc);
+    if (IMC <= 18.5) {
+        printf("VocÃª estÃ¡ abaixo do peso.");
+    } else if (IMC >= 25 && IMC <= 29.99) {
+        printf("VocÃª estÃ¡ com sobrepeso.");
+    } else if (IMC >= 18.5 && IMC <= 24.99) {
+        printf("VocÃª estÃ¡ com o peso normal.");
     } else {
-        printf("\nSeu IMC é: %.2f\nVocê está obeso", imc);
+        printf("VocÃª estÃ¡ obeso.");
     }
 
     return 0;

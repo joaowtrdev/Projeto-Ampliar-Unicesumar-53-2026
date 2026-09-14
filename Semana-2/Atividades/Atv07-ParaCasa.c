@@ -1,6 +1,6 @@
 /*
-    Escreva um programa que receba 2 números inteiros e multiplique-os.
-    O programa deverá informar se o resultado da multiplicação é par ou í­mpar.
+    Escreva um programa que receba 2 nÃºmeros inteiros e multiplique-os.
+    O programa deverÃ¡ informar se o resultado da multiplicaÃ§Ã£o Ã© par ou Ã­Â­mpar.
 */
 
 #include <stdio.h>
@@ -9,25 +9,24 @@
 
 int main() {
 
-    setlocale(LC_ALL, "Portuguese_Brazil");
-    system("clear");
+    setlocale(LC_ALL, "pt_BR.UTF-8");
+    system("cmd /c cls");
 
-    int numero1, numero2, resultado;
+    int num1, num2, resultado;
 
-    printf("Digite o primeiro número: ");
-    scanf("%d", &numero1);
+    printf("Informe o primeiro nÃºmero: ");
+    scanf("%d", &num1);
+    
+    printf("Informe o segundo nÃºmero: ");
+    scanf("%d", &num2);
 
-    printf("Digite o segundo número: ");
-    scanf("%d", &numero2);
+    resultado = num1 * num2;
 
-    resultado = numero1 * numero2;
-    printf("%d x %d = %d\n", numero1, numero2, resultado);
-
-    if(resultado % 2 == 0) {
-        printf("O número %d é PAR", resultado);
+    if (resultado % 2 == 0) {
+        printf("O resultado da multiplicaÃ§Ã£o Ã© par.");
     } else {
-        printf("O número %d é IMPAR", resultado);
+        printf("O resultado da multiplicaÃ§Ã£o Ã© Ã­Â­mpar.");
     }
-
+    
     return 0;
 }

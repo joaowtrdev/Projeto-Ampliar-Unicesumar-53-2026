@@ -1,95 +1,109 @@
 /*
-    Escreva um algoritmo em C que receba o sal·rio de um funcion·rio e o cargo de seu cÛdigo.
-    De acordo com seu cÛdigo, informe quanto de aumento ele teve e o valor atual de seu sal·rio.
+    Escreva um algoritmo em C que receba o sal√°rio de um funcion√°rio e o cargo de seu c√≥digo.
+    De acordo com seu c√≥digo, informe quanto de aumento ele teve e o valor atual de seu sal√°rio.
     A tabela a seguir apresenta os cargos e seus respectivos aumentos:
 
-    CÛdigos        |         Cargo           |      Aumento
+    C√≥digos        |         Cargo           |      Aumento
     1                   Desenvolvedor Java           30%
     2                   Analista de Redes            25%
     3                   Arquiteto DevOps             50%
-    4                   TÈcnico de Suporte           13%
+    4                   T√©cnico de Suporte           13%
 
-    A saÌda dever· ser:
-    Sal·rio atual: R$xxxxx,xx
+    A sa√≠da dever√° ser:
+    Sal√°rio atual: R$xxxxx,xx
     Aumento de x%: R$xxx,xx
-    Novo sal·rio:  R$xxxxx,xx
+    Novo sal√°rio:  R$xxxxx,xx
 
     Desafio (opcional):
-    Que tal se arriscar um pouco mais em um conceito que n„o trabalhamos ainda? Como entrada, receba tambÈm o nome do funcion·rio e escrevÍ-lo na saÌda?
+    Que tal se arriscar um pouco mais em um conceito que n√£o trabalhamos ainda? Como entrada, receba tamb√©m o nome do funcion√°rio e escrev√™-lo na sa√≠da?
 
-    Se for se aventurar, a saÌda dever· ser assim:
+    Se for se aventurar, a sa√≠da dever√° ser assim:
 
-    Nome do Funcion·rio: xxxxxxxxxxx
-    Sal·rio atual: R$xxxxx,xx
+    Nome do Funcion√°rio: xxxxxxxxxxx
+    Sal√°rio atual: R$xxxxx,xx
     Aumento de x%: R$xxx,xx
-    Novo sal·rio:  R$xxxxx,xx
+    Novo sal√°rio:  R$xxxxx,xx
 
 */
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <locale.h>
+#include <string.h>
 
 int main() {
 
-    setlocale(LC_ALL, "Portuguese_Brazil");
-    system("clear");
+    setlocale(LC_ALL, "pt_BR.UTF-8");
+    system("cmd /c cls");
 
-    float salario, salarioAumentado, aumento;
-    int codigo, percentual;
-    char nome[15];
+    char nome[30];
+    float salario, aumento, novoSalario;
+    int codigo;
 
-    printf("Informe seu nome: ");
-    scanf("%s", nome);
+    printf("Informe seu Nome: ");
+    fgets(nome, sizeof(nome), stdin);
+    nome[strcspn(nome, "\n")] = '\0';
 
-    printf("Informe seu sal·rio: ");
+    printf("Informe seu Sal√°rio: ");
     scanf("%f", &salario);
 
     printf(
-        "::: Informe o cÛdigo da profiss„o :::\n"
-        "1 - Desenvolvedor Java\n"
-        "2 - Analista de Redes\n"
-        "3 - Arquiteto DevOps\n"
-        "4 - TÈcnico de Suporte\n"
-        "Escolha: "
-    );
-    scanf("%d", &codigo);
+        "1. Desenvolvedor Java\n"
+        "2. Analista de Redes\n"
+        "3. Arquiteto DevOps\n"
+        "4. T√©cnico de Suporte\n"
+        "Informe o c√≥digo do seu cargo: ");
+        scanf("%d", &codigo);
 
     switch (codigo) {
+        
         case 1:
-            percentual = 30;
-            aumento = salario * percentual / 100;
-        break;
-
+            aumento = salario * 0.30;
+            novoSalario = salario + aumento;
+        
+            printf("\nNome do Funcion√°rio: %s\n", nome);
+            printf("Sal√°rio atual: R$%.2f\n", salario);
+            printf("Aumento de 30%%: R$%.2f\n", aumento);
+            printf("Novo sal√°rio:  R$%.2f", novoSalario);
+            
+            break;
         case 2:
-            percentual = 25;
-            aumento = salario * percentual / 100;
-        break;
-
+             aumento = salario * 0.25;
+            novoSalario = salario + aumento;
+            
+            printf("\nNome do Funcion√°rio: %s\n", nome);
+            printf("Sal√°rio atual: R$%.2f\n", salario);
+            printf("Aumento de 25%%: R$%.2f\n", aumento);
+            printf("Novo sal√°rio:  R$%.2f", novoSalario);
+            
+            break;
         case 3:
-            percentual = 50;
-            aumento = salario * percentual / 100;
-        break;
+            aumento = salario * 0.50;
+            novoSalario = salario + aumento;
+        
+            printf("\nNome do Funcion√°rio: %s\n", nome);
+            printf("Sal√°rio atual: R$%.2f\n", salario);
+            printf("Aumento de 50%%: R$%.2f\n", aumento);
+            printf("Novo sal√°rio:  R$%.2f", novoSalario);
 
+            break;
         case 4:
-            percentual = 13;
-            aumento = salario * percentual / 100;
-        break;
+            aumento = salario * 0.13;
+            novoSalario = salario + aumento;
+
+            printf("\nNome do Funcion√°rio: %s\n", nome);
+            printf("Sal√°rio atual: R$%.2f\n", salario);
+            printf("Aumento de 13%%: R$%.2f\n", aumento);
+            printf("Novo sal√°rio:  R$%.2f", novoSalario);
+            
+            break;
+        case 5:
+            printf("Op√ß√£o inv√°lida!! Tente novamente...");
+            
+            break;
     
         default:
-            printf("OpÁ„o inv·lida!!");
-            return 1;
-        break;
+            break;
     }
-
-    salarioAumentado = salario + aumento;
-
-    printf(
-        "Nome do Funcion·rio: %s\n"
-        "Antigo sal·rio: R$%.2f\n"
-        "Aumento de %d%%: R$%.2f\n"
-        "Sal·rio atual: R$%.2f\n", nome, salario, percentual, aumento, salarioAumentado
-    );
-
-    return 0;
+        return 0;
 }

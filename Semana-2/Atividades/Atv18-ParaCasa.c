@@ -1,21 +1,21 @@
 /*
-    Escreva um programa em C para resolver a fórmula de Bhaskara.
+    Escreva um programa em C para resolver a fÃ³rmula de Bhaskara.
 
     Entrada de dados:
     - Valor de A, B e C.
 
     Processamento:
-    - Verificar se A é diferente de 0.
-    - Calcular o delta. (delta = b² - 4.a.c)
-    - Verificar se o delta é:
-        - negativo: A equação não possui raízes reais
+    - Verificar se A Ã© diferente de 0.
+    - Calcular o delta. (delta = bÂ² - 4.a.c)
+    - Verificar se o delta Ã©:
+        - negativo: A equaÃ§Ã£o nÃ£o possui raÃ­zes reais
         - igual a zero: calcular apenas x = -b / 2a
         - positivo: x = -b +- raiz de delta / 2.a
-    - Calcular as raízes quando possível.
+    - Calcular as raÃ­zes quando possÃ­vel.
 
-    Saída:
+    SaÃ­da:
     - Exibir o valor do delta.
-    - Exibir as raízes reais da equação.
+    - Exibir as raÃ­zes reais da equaÃ§Ã£o.
 
     Teste:
     A = 1
@@ -26,7 +26,7 @@
     X1 = 3
     X2 = 2
 
-    Veja mais sobre a fórmula de Bhaskara em:
+    Veja mais sobre a fÃ³rmula de Bhaskara em:
     https://www.todamateria.com.br/formula-de-bhaskara/
 */
 
@@ -37,43 +37,41 @@
 
 int main() {
 
-    setlocale(LC_ALL, "Portuguese_Brazil");
-    system("clear");
+    setlocale(LC_ALL, "pt_BR.UTF-8");
+    system("cmd /c cls");
 
-    float numeroA, numeroB, numeroC, delta, x1, x2;
+    float numA, numB, numC, delta, x1, x2;
 
     printf("Informe o valor de A: ");
-    scanf("%f", &numeroA);
+    scanf("%f", &numA);
 
     printf("Informe o valor de B: ");
-    scanf("%f", &numeroB);
+    scanf("%f", &numB);
 
     printf("Informe o valor de C: ");
-    scanf("%f", &numeroC);
+    scanf("%f", &numC);
 
-    if(numeroA == 0) {
-        printf("Não é uma equação do segundo grau, pois A deve ser diferente de 0\n");
+    if(numA == 0) {
+        printf("NÃ£o Ã© uma equaÃ§Ã£o do segundo grau, pois A deve ser diferente de 0\n");
         return 1;
     } else {
-        delta = pow(numeroB, 2) - (4 * numeroA * numeroC);
+        delta = pow(numB, 2) - (4 * numA * numC);
 
         if(delta < 0) {
             printf("\nDelta = %.2f\n", delta);
-            printf("A equação não possui raízes reais\n");
+            printf("A equaÃ§Ã£o nÃ£o possui raÃ­zes reais\n");
         } else if(delta == 0) {
-            // x = -b / 2a
-            x1 =  -numeroB / (2 * numeroA);
+            x1 =  -numB / (2 * numA);
 
             printf("\nDelta = %.2f\n", delta);
-            printf("A equação possui apenas uma raiz real.\n");
+            printf("A equaÃ§Ã£o possui apenas uma raiz real.\n");
             printf("X = %.2f\n", x1);
         } else {
-            // x = -b +- ?? / 2.a
-            x1 = (-numeroB + sqrt(delta)) / (2 * numeroA);
-            x2 = (-numeroB - sqrt(delta)) / (2 * numeroA);
+            x1 = (-numB + sqrt(delta)) / (2 * numA);
+            x2 = (-numB - sqrt(delta)) / (2 * numA);
 
             printf("\nDelta = %.0f\n", delta);
-            printf("A equação possui duas raízes reais\n");
+            printf("A equaÃ§Ã£o possui duas raÃ­zes reais\n");
             printf(
                 "X1 = %.0f\n"
                 "X2 = %.0f\n", x1, x2

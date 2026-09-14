@@ -7,20 +7,20 @@
 #include <stdlib.h>
 #include <locale.h>
 
-int main() {
-    setlocale(LC_ALL, "Portuguese_Brazil");
-    system("clear");
+int main(){
+
+    setlocale(LC_ALL, "pt_BR");
+    system("cmd /c cls");
 
     int idade;
 
-    printf("Perguntar a idade: ");
+    printf("Informe sua idade: ");
     scanf("%d", &idade);
 
-    if(idade > 17) // idade >= 18
-    {
-        printf("Você é maior de idade!!\nVocê está ficando idoso");
+    if (idade >= 18) {
+        printf("Você é maior de idade!");
     } else {
-        printf("Você é menor de idade");
+        printf("Você é menor de idade!");
     }
 
     return 0;

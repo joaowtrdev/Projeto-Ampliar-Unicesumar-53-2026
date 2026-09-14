@@ -1,9 +1,9 @@
 /*
     Escreva um programa em C que receba um ano (Ex: 2025)
-    e informe se esse ano é bissexto ou não.
+    e informe se esse ano Ã© bissexto ou nÃ£o.
 
-    Para um ano ser bissexto ele deve ser divisí­vel por 4,
-    mas não pode ser divisí­vel por 100 (exceto se for divisí­vel por 400)
+    Para um ano ser bissexto ele deve ser divisÃ­Â­vel por 4,
+    mas nÃ£o pode ser divisÃ­Â­vel por 100 (exceto se for divisÃ­Â­vel por 400)
 */
 
 #include <stdio.h>
@@ -12,18 +12,18 @@
 
 int main() {
 
-    setlocale(LC_ALL, "Portuguese_Brazil");
-    system("clear");
+    setlocale(LC_ALL, "pt_BR.UTF-8");
+    system("cmd /c cls");
 
     int ano;
 
-    printf("Digite um ano: ");
+    printf("Informe o ano: ");
     scanf("%d", &ano);
 
     if((ano % 4 == 0 && ano % 100 != 0) || ano % 400 == 0) {
-        printf("O ano %d é bissexto", ano);
+        printf("O ano %d Ã© bissesto!", ano);
     } else {
-        printf("O ano %d não é bissexto", ano);
+        printf("O ano %d nÃ£o Ã© bissesto!", ano);
     }
 
     return 0;

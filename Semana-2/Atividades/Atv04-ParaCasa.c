@@ -1,72 +1,86 @@
 /*
-    Escreva um programa que apresente as quatro operações aritmeticas pro usuário.
-    Como uma calculadora. O usuário deverá escolher qual operação ele quer realizar
-    e informar 2 números.
+    Escreva um programa que apresente as quatro opera??es aritmeticas pro usu?rio.
+    Como uma calculadora. O usu?rio dever? escolher qual opera??o ele quer realizar
+    e informar 2 n?meros.
 
     1. Soma
-    2. Subtração
-    3. Divisão
-    4. Multiplicação
+    2. Subtra??o
+    3. Divis?o
+    4. Multiplica??o
 */
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <locale.h>
 
-int main() {
+int main()
+{
 
-    setlocale(LC_ALL, "Portuguese_Brazil");
-    system("clear");
+    setlocale(LC_ALL, "pt_BR.UTF-8");
+    system("cmd /c cls");
 
     int operacao;
-    float numero1, numero2, resultado;
+    float num1, num2, resultado;
 
     printf(
-        "::: Escolha a operação que deseja realizar :::\n"
         "1. Soma\n"
-        "2. Subtração\n"
-        "3. Divisão\n"
-        "4. Multiplicação\n"
-        "Escolha: "
-    );
+        "2. SubtraÃ§Ã£o\n"
+        "3. DivisÃ£o\n"
+        "4. MultipicaÃ§Ã£o\n"
+        "Escolha a operaÃ§Ã£o que deseja realizar: ");
 
     scanf("%d", &operacao);
 
-    printf("Informe o primeiro número: ");
-    scanf("%f", &numero1);
+    switch (operacao) {
+    case 1:
+        printf("Infome o primeiro nÃºmero: ");
+        scanf("%f", &num1);
 
-    printf("Informe o segundo número: ");
-    scanf("%f", &numero2);
+        printf("Digite o segundo nÃºmero: ");
+        scanf("%f", &num2);
 
-    switch(operacao) {
-        case 1:
-            resultado = numero1 + numero2;
+        resultado = num1 + num2;
+
+        printf("Resultado da soma Ã© %.2f.", resultado);
+        break;
+    case 2:
+        printf("Infome o primeiro nÃºmero: ");
+        scanf("%f", &num1);
+
+        printf("Digite o segundo nÃºmero: ");
+        scanf("%f", &num2);
+
+        resultado = num1 - num2;
+
+        printf("Resultado da subtraÃ§Ã£o Ã© %.2f.", resultado);
+        break;
+    case 3:
+        printf("Infome o primeiro nÃºmero: ");
+        scanf("%f", &num1);
+
+        printf("Digite o segundo nÃºmero: ");
+        scanf("%f", &num2);
+
+        resultado = num1 / num2;
+
+        printf("Resultado da divisÃ£o Ã© %.2f.", resultado);
+        break;
+    case 4:
+        printf("Infome o primeiro nÃºmero: ");
+        scanf("%f", &num1);
+
+        printf("Digite o segundo nÃºmero: ");
+        scanf("%f", &num2);
+
+        resultado = num1 * num2;
+
+        printf("Resultado da multiplicaÃ§Ã£o Ã© %.2f.", resultado);
         break;
 
-        case 2:
-            resultado = numero1 - numero2;
-        break;
-
-        case 3:
-            if(numero2 == 0){
-                printf("Não é possível dividir por zero\n");
-                return 1;
-            } else {
-                resultado = numero1 / numero2;
-            }
-        break;
-
-        case 4:
-            resultado = numero1 * numero2;
-        break;
-
-        default:
-            printf("Erro!! Essa opção não existe");
-            return 1;
+    default:
+        printf("OpÃ§Ã£o invalida.");
         break;
     }
-
-    printf("Resultado = %.1f", resultado);
 
     return 0;
 }

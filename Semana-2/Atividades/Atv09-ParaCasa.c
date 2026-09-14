@@ -1,11 +1,11 @@
 /*
-    Escreva um programa que receba o cadastro de uma pessoa, contendo: Idade, CPF e cÛdigo para sexo.
+    Escreva um programa que receba o cadastro de uma pessoa, contendo: Idade, CPF e c√≥digo para sexo.
 
-    Se o cÛdigo for 1, a pessoa È do sexo masculino.
-    Se o cÛdigo for 2, a pessoa È do sexo feminino.
-    Se o cÛdigo for 3, a pessoa optou por n„o informar.
+    Se o c√≥digo for 1, a pessoa √© do sexo masculino.
+    Se o c√≥digo for 2, a pessoa √© do sexo feminino.
+    Se o c√≥digo for 3, a pessoa optou por n√£o informar.
 
-    O programa dever· escrever na tela a idade, o CPF e o sexo da pessoa.
+    O programa dever√° escrever na tela a idade, o CPF e o sexo da pessoa.
 
 */
 
@@ -15,56 +15,52 @@
 
 int main() {
 
-    setlocale(LC_ALL, "Portuguese_Brazil");
-    system("clear");
+    setlocale(LC_ALL, "pt_BR.UTF-8");
+    system("cmd /c cls");
 
     int idade, sexo;
-    char cpf[15];
+    char cpf[12];
 
     printf("Informe sua idade: ");
     scanf("%d", &idade);
-
-    printf("Digite o CPF(somente n˙mero): ");
-    scanf("%s",cpf);
-
+    
+    printf("Informe seu CPF: ");
+    scanf("%11s", cpf);
+    
     printf(
-        "1 - Masculino\n"
-        "2 - Feminino\n"
-        "3 - N„o informar\n"
-        "Informar: "
-    );
+        "Informe seu sexo\n"
+        "Digite 1 para masculino\n"
+        "Digite 2 para feminino\n"
+        "Digite 3 para n√£o informar.\n"
+        "Escolha uma das op√ß√µes acima: ");
     scanf("%d", &sexo);
 
-    // if(sexo == 1) {
-    //     printf("Sexo Masculino\n");
-    // } else if(sexo == 2) {
-    //     printf("Sexo Feminino");
-    // } else if(sexo == 3) {
-    //     printf("Sexo N„o Informado");
-    // } else {
-    //     printf("OpÁ„o inv·lida");
-    // }
-
-    switch (sexo){
+    switch (sexo) {
         case 1:
-            printf("\nSexo: Masculino\n");
-        break;
-
+            printf("%d", idade);
+            printf("\n%s", cpf);
+            printf("\nMasculino");
+            break;
+        
         case 2:
-            printf("\nSexo: Feminino\n");
-        break;
-
+            printf("%d", idade);
+            printf("\n%s", cpf);
+            printf("\nFeminino");
+            break;
+        
         case 3:
-            printf("\nSexo: N„o Informado\n");
-        break;
-            
+            printf("%d", idade);
+            printf("\n%s", cpf);
+            printf("\nPrefiro n√£o informar");
+            break;
+        
+        case 4:
+            printf("Op√ß√£o invalida!! Tente novamente...");
+            break;
+        
         default:
-            printf("\nOpÁ„o inv·lida\n");
-        break;
+            break;
     }
-
-    printf("Idade: %d\n", idade);
-    printf("CPF: %s\n", cpf);
-
+    
     return 0;
 }

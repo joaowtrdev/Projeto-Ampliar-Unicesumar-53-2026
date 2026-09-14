@@ -1,6 +1,6 @@
 /*
-    Escreva um algortimo em C que receba 3 n˙meros inteiros
-    e informe qual deles È o maior.
+    Escreva um algortimo em C que receba 3 n√∫meros inteiros
+    e informe qual deles √© o maior.
 */
 
 #include <stdio.h>
@@ -9,29 +9,27 @@
 
 int main() {
 
-    setlocale(LC_ALL, "Portuguese_Brazil");
-    system("clear");
+    setlocale(LC_ALL, "pt_BR.UTF-8");
+    system("cmd /c cls");
 
-    int n1, n2, n3;
+        int num1, num2, num3;
 
-    printf("Informe o primeiro n˙mero: ");
-    scanf("%d", &n1);
+        printf("Infome o primeiro n√∫mero: ");
+        scanf("%d", &num1);
+        
+        printf("Infome o segundo n√∫mero: ");
+        scanf("%d", &num2);
+        
+        printf("Infome o terceiro n√∫mero: ");
+        scanf("%d", &num3);
 
-    printf("Informe o segundo n˙mero: ");
-    scanf("%d", &n2);
-
-    printf("Informe o terceiro n˙mero: ");
-    scanf("%d", &n3);
-
-    if(n1 > n2 && n1 > n3) {
-        printf("O maior n˙mero È %d", n1);
-    } else if(n2 > n1 && n2 > n3) {
-        printf("O maior n˙mero È %d", n2);
-    } else if(n3 > n1 && n3 > n2) {
-        printf("O maior n˙mero È %d", n3);
-    } else {
-        printf("Todos os n˙meros s„o iguais");
-    }
-
+        if (num1 > num2 && num1 > num3) {
+            printf("O maior n√∫mero √© %d.", num1);
+        } else if (num2 > num1 && num2 > num3) {
+            printf("O maior n√∫mero √© %d.", num2);
+        } else {
+            printf("O maior n√∫mero √© %d.", num3);
+        }
+    
     return 0;
 }
