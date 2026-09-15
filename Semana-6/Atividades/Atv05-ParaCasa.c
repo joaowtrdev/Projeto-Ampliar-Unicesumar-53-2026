@@ -57,7 +57,7 @@ int main() {
 
         if(opcao >= 1 && opcao <= 4) {
 
-            printf("Informe o primeiro número: ");
+            printf("\nInforme o primeiro número: ");
             scanf("%f", &numero1);
 
             printf("Informe o segundo número: ");
