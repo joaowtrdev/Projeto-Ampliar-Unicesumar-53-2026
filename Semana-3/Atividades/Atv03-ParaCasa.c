@@ -1,5 +1,25 @@
 /*
-    Escreva um algortimo que receba um número e escreva na tela a 
-    tabuada de multiplicação deste número.
+    Escreva um algortimo que receba um nÃºmero e escreva na tela a 
+    tabuada de multiplicaÃ§Ã£o deste nÃºmero.
 */
 
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h>
+
+int main() {
+
+    setlocale(LC_ALL, "pt_BR.UTF-8");
+    system("cmd /c cls");
+
+    int numero;
+
+    printf("Informe um nÃºmero: ");
+    scanf("%d", &numero);
+
+    for(int i = 1; i <= 10; i++) {
+        printf("%d x %d = %d\n", numero, i, numero*i);
+    }
+
+    return 0;
+}
